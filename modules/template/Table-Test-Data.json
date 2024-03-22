@@ -1,0 +1,79 @@
+{
+  "dev-comments": [
+    "Contains a reference data structure with all of the features that a `CardTable-Widget` is able to implement",
+    "The data from a regular data service/query output, should be converted into this format before calling this constructor.",
+    "To help with that opetation `CardTable-Data.js` module provides a configurable convertion function from tabular data."
+  ],
+  "samples": {
+    "Basic": {
+      "dev-comments": "A simple table with text, numbers and some alignment options",
+      "title": "Email queue status",
+      "header": [
+        { "title": "Email", "align": "left" },
+        { "title": "Queue", "align": "right" },
+        { "title": "WIP", "align": "number" },
+        { "title": "Archived", "align": "right" }
+      ],
+      "body": [
+        ["clientes@mycompany.test", 123, 3, 12712],
+        ["atcbo@someother.fyi", 354, 7, 19123],
+        ["renting-bsp@santander.com", 57, 0, 976],
+        ["dto-requests@santanderconsumer.com", 23, 1, 8104]
+      ]
+    },
+    "Basic_With_Alerts": {
+      "dev-comments": "The Basic table, but with alerts",
+      "title": "Queue status highlights",
+      "header": [
+        { "title": "Email", "align": "left" },
+        { "title": "Queue", "align": "right" },
+        { "title": "WIP", "align": "number" },
+        { "title": "Archived", "align": "right" }
+      ],
+      "body": [
+        ["clientes@mycompany.test", 123, 3, 12712],
+        ["atcbo@someother.fyi", 354, 7, 19123],
+        ["renting-bsp@santander.com", 57, 0, 976],
+        ["dto-requests@santanderconsumer.com", 23, 1, 8104]
+      ],
+      "alerts": [
+        {
+          "type": "warning",
+          "column": 2,
+          "range": [50, 100]
+        },
+        {
+          "type": "problem",
+          "column": 2,
+          "range": [101, 50000]
+        },
+        {
+          "type": "info",
+          "column": "Archived",
+          "rangeOut": [0, 15000]
+        },
+        {
+          "type": "problem",
+          "column": "WIP",
+          "above": 101
+        }
+      ]
+    },
+    "Complete": {
+      "dev-comments": "TODO - A sample yhat uses all features/options",
+      "props": "TODO",
+      "title": "CardTable \"Full Features\"",
+      "header": [{ "title": "TODO", "align": "TODO" }],
+      "body": [["TODO"]],
+      "alerts": [
+        {
+          "type": "(info|warning|problem)",
+          "column": "(index|title)",
+          "range": "[low,high]",
+          "rangeOut": "[low,high]",
+          "values": ["a", "b", "c"]
+        }
+      ]
+    }
+  }
+}

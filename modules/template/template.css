@@ -1,0 +1,105 @@
+/* TEMPLATE: Card */
+
+.template-card {
+  min-height: 10rem;
+  justify-content: space-around;
+  border-radius: 0.3em;
+  background-color: var(--clr-panel-bg);
+  box-shadow: 0.08em 0.08em 0.3em hsla(0, 0%, 0%, 0.499);
+  padding: 1.2em;
+  font-size: var(--fs-XS);
+}
+
+.template-card-title {
+  display: flex;
+  gap: 0.4em;
+  padding-bottom: 0.4em;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed var(--clr-banner-bg);
+  color: var(--clr-panel-text-h);
+}
+
+.template-card-title > svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  color: var(--clr-panel-text-h);
+}
+
+.template-card-title > h2 {
+  font-weight: var(--fw-light);
+  font-size: var(--fs-XXS);
+  color: var(--clr-panel-text);
+}
+
+.template-card-body {
+  background: transparent;
+  border-top: 1px dashed var(--clr-bottom-bg);
+  color: var(--clr-panel-text);
+}
+
+/* TEMPLATE: Table */
+
+.template-table {
+  border-collapse: collapse;
+  border-spacing: 1em;
+  empty-cells: show;
+  max-width: 33rem;
+}
+
+.template-table thead {
+  text-align: left;
+  vertical-align: bottom;
+  font-weight: var(--fw-bold);
+  text-shadow: 1px 1px var(--clr-bottom-bg);
+  color: var(--clr-bottom-text);
+}
+
+.template-table tbody {
+  text-align: left;
+  vertical-align: top;
+}
+
+.template-table th,
+.template-table td {
+  overflow: visible;
+  margin: 0;
+  padding-left: 2em;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.template-table th:first-child,
+.template-table td:first-child {
+  padding-left: 0;
+}
+
+.template-table th {
+  padding-block: 0.6em;
+  white-space: nowrap;
+}
+.template-table td {
+  padding-block: 0.2em;
+}
+
+/* ALERTS */
+.svg-alert {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  color: #fff;
+  /* transform: scale(0.8); */
+}
+
+.svg-alert.info {
+  color: var(--clr-aux-info);
+}
+
+.svg-alert.warning {
+  color: var(--clr-aux-warning);
+}
+
+.svg-alert.problem {
+  color: var(--clr-aux-problem);
+}

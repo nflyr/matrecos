@@ -1,0 +1,134 @@
+/* 
+INDEX - styles specific for the index page 
+*/
+
+#app {
+  display: grid;
+  grid-template-rows: 44px auto;
+}
+
+#app-header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+@media (min-width: 800px) {
+  #app {
+    grid-template-columns: 64px auto;
+  }
+  #app-header {
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-block: 1em;
+  }
+}
+
+#app-header > a {
+  padding: 6px;
+}
+
+#app-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-inline: 2em;
+  margin-block: 1em;
+  gap: 20px;
+}
+
+#app-config {
+  position: absolute;
+  width: 70%;
+  min-width: 320px;
+  max-width: 980px;
+  left: 15%;
+  top: 2em;
+  border-radius: 0.3em;
+  padding: 1em;
+  background-color: var(--clr-panel-bg);
+  box-shadow: 0.08em 0.08em 0.3em hsla(0, 0%, 0%, 0.499);
+  font-size: var(--fs-XS);
+}
+
+#app-config-header {
+  display: flex;
+  border-bottom: 1px dashed var(--clr-banner-bg);
+  padding-bottom: 0.4em;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--clr-panel-text);
+}
+
+#app-config-header > svg,
+#app-config-header > a {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  color: hsl(52, 100%, 51%);
+}
+
+#app-config-body {
+  border-top: 1px dashed var(--clr-bottom-bg);
+  color: var(--clr-panel-text);
+}
+
+.logo-24 {
+  width: 24px;
+  height: 24px;
+  margin: 5px;
+  padding: 0;
+}
+
+.logo-24.vite:hover {
+  border-radius: 2px;
+  box-shadow: 0 0 12px hsl(282, 100%, 74%);
+}
+
+.logo-24.js:hover {
+  border-radius: 2px;
+  box-shadow: 0 0 8px hsl(52, 100%, 71%);
+}
+
+.logo-32 {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  fill: none;
+  color: hsl(52, 100%, 51%);
+  position: relative;
+}
+
+.logo-32:hover {
+  border-radius: 16px;
+  box-shadow: inset 0 0 12px hsl(52, 100%, 25%), 0 0 8px hsl(52, 100%, 25%);
+}
+
+/* OTHER CONVENTIONS */
+
+div.form-data {
+  display: grid;
+  margin-block: 1em;
+  gap: 1em;
+}
+
+div.form-data-item {
+  display: grid;
+  justify-items: start;
+  gap: 0.3em;
+}
+
+div.form-data-item h2 {
+  color: var(--clr-panel-text);
+  font-weight: var(--fw-normal-plus);
+  font-size: var(--fs-M);
+}
+
+div.form-data-item label {
+  color: var(--clr-panel-text);
+}
+
+div.form-data-item input[type="radio"] {
+  margin-inline: 0.2em;
+}

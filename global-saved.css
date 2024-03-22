@@ -1,0 +1,197 @@
+/*! RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/*! HOSTED FONTS */
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/roboto-light-webfont.woff2") format("woff2"), url("/fonts/roboto-light-webfont.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/roboto-regular-webfont.woff2") format("woff2"), url("/fonts/roboto-regular-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/roboto-medium-webfont.woff2") format("woff2"), url("/fonts/roboto-medium-webfont.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/roboto-bold-webfont.woff2") format("woff2"), url("/fonts/roboto-bold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/roboto-black-webfont.woff2") format("woff2"), url("/fonts/roboto-black-webfont.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+/*! VARIABLES */
+
+:root {
+  --clr-primary-white: #fff;
+  --clr-primary-light: hsl(0, 0%, 95%);
+  --clr-primary-medium-light: #b3b3b3;
+  --clr-primary-medium: #686868;
+  --clr-primary-medium-dark: #323232;
+  --clr-primary-dark: #282828;
+  --clr-primary-black: #000;
+  --clr-aux-info: #00ab00;
+  --clr-aux-warning: #ffbc05;
+  --clr-aux-problem: #ff0000;
+
+  --ff-base: "Roboto", sans-serif;
+
+  --fw-light: 200;
+  --fw-normal: 300;
+  --fw-normal-plus: 500;
+  --fw-bold: 700;
+  --fw-bolder: 900;
+
+  --fs-XXS: 0.625rem;
+  --fs-XS: 0.875rem;
+  --fs-S: 1rem;
+  --fs-M: 1rem;
+  --fs-L: 1.375rem;
+  --fs-XL: 1.74rem;
+  --fs-XXL: 3.25rem;
+
+  color-scheme: light dark;
+}
+
+/* COMMON (MOST USED) ELEMENTS */
+
+body {
+  min-width: 320px;
+  /* max-width: 1480px; */
+  margin-inline: auto;
+
+  font-family: var(--ff-base);
+  font-weight: var(--fw-normal);
+
+  background-color: var(--clr-primary-dark);
+  color: var(--clr-primary-medium);
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: var(--clr-primary-light);
+  font-weight: var(--fw-normal-plus);
+  text-decoration: inherit;
+}
+a:hover {
+  color: hsl(52, 100%, 51%);
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--clr-primary-medium-dark);
+  color: var(--clr-primary-light);
+  cursor: pointer;
+}
+button:hover {
+  border-color: hsl(52, 100%, 51%);
+  color: hsl(52, 100%, 51%);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* CONVENTION UTILITY STYLES */
+
+.svg-icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  color: #ffffff;
+}
+
+.list {
+  list-style-type: none;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none;
+  position: "absolute";
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.blur {
+  filter: blur(0.1rem);
+}
+
+/* GENERAL TEXT ALIGNMENTS */
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right,
+.text-align-number {
+  text-align: right;
+}
+
+.text-align-justify {
+  text-align: justify;
+}
+
+/* ALERTS : VISUAL DECORATION OF TEXT */
+
+.info {
+  color: var(--clr-aux-info) !important;
+  text-shadow: 1px 1px var(--clr-primary-black);
+}
+
+.warning {
+  color: var(--clr-aux-warning) !important;
+  text-shadow: 1px 1px var(--clr-primary-black);
+}
+
+.problem {
+  color: var(--clr-aux-problem) !important;
+  text-shadow: var(--clr-primary-light) 0 0 0.8em;
+}

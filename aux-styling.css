@@ -1,0 +1,62 @@
+/* PANELS */
+
+.nsx-bottom {
+  display: grid;
+  justify-items: start;
+  padding: 1rem;
+  gap: 1rem;
+}
+.nsx-flex {
+  display: flex;
+  justify-content: center;
+  padding-block: 1rem;
+  gap: 1rem;
+  /* border: 1px solid green; */
+}
+.nsx-grid {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  /* border: 1px solid red; */
+}
+
+.nsx-board {
+  max-width: 600px;
+  padding-inline: 1em;
+}
+
+.nsx-board > aside,
+.nsx-board > p,
+.nsx-banner > aside,
+.nsx-banner > p {
+  padding-block: 0.4em;
+}
+
+.nsx-banner {
+  padding-inline: 1em;
+  /* border: 1px solid hsl(0, 100%, 75%); */
+}
+
+.mono-high {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 500;
+}
+
+/* color usage */
+
+.bottom {
+  background-color: var(--clr-bottom-bg);
+  color: var(--clr-bottom-text);
+}
+
+.board {
+  border-radius: 0.3rem;
+  background-color: var(--clr-panel-bg);
+  color: var(--clr-panel-text);
+}
+
+.banner {
+  border-radius: 0.3rem;
+  background-color: var(--clr-banner-bg);
+  color: var(--clr-banner-text);
+}

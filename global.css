@@ -1,0 +1,238 @@
+/*! RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+/*! HOSTED FONTS */
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/roboto-light-webfont.woff2") format("woff2"), url("/fonts/roboto-light-webfont.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/roboto-regular-webfont.woff2") format("woff2"), url("/fonts/roboto-regular-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/roboto-medium-webfont.woff2") format("woff2"), url("/fonts/roboto-medium-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/roboto-bold-webfont.woff2") format("woff2"), url("/fonts/roboto-bold-webfont.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/roboto-black-webfont.woff2") format("woff2"), url("/fonts/roboto-black-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/*! VARIABLES */
+
+/*
+Schema:
+ - Background
+    - back          #333333
+    - text          #cccccc
+ - Board (panels)
+     - board        #555555
+     - text         #cccccc
+ - Banner (cards / alerts)
+     - banner       #666666
+     - text         #dddddd
+ - Buttons
+     - text         #dddddd
+ - Forms
+     - back         #444444
+     - text         #cccccc
+     - databg       #666666
+ - Headings
+     - text         #cccccc
+ - Links
+     - text         #bbbbbb
+
+*/
+
+:root {
+  /* primary colors */
+
+  /* component colors */
+  --clr-bottom-bg: hsl(0, 0%, 8%);
+  --clr-bottom-text: hsl(0, 0%, 55%);
+  --clr-panel-bg: hsl(0, 0%, 20%);
+  --clr-panel-text: hsl(0, 0%, 80%);
+  --clr-panel-text-h: hsl(0, 0%, 90%);
+  --clr-banner-bg: hsl(0, 0%, 69%);
+  --clr-banner-text: hsl(0, 0%, 4%);
+
+  --clr-button-bg: hsl(52, 50%, 50%);
+  --clr-button-bg-h: hsl(0, 0%, 20%);
+  --clr-button-text: hsl(0, 0%, 5%);
+  --clr-button-text-h: hsl(0, 0%, 80%);
+
+  --clr-input-bg: hsl(0, 0%, 80%);
+  --clr-input-tips: hsl(0, 0%, 80%);
+  --clr-input-text: hsl(0, 0%, 80%);
+  --clr-text: hsl(0, 0%, 80%);
+
+  --clr-aux-info: #00ab00;
+  --clr-aux-warning: #ffbc05;
+  --clr-aux-problem: #ff0000;
+
+  --ff-base: "Roboto", sans-serif;
+
+  --fw-light: 200;
+  --fw-normal: 300;
+  --fw-normal-plus: 500;
+  --fw-bold: 600;
+  --fw-bolder: 700;
+
+  --fs-XXS: 0.625rem;
+  --fs-XS: 0.875rem;
+  --fs-S: 1rem;
+  --fs-M: 1rem;
+  --fs-L: 1.375rem;
+  --fs-XL: 1.74rem;
+  --fs-XXL: 3.25rem;
+
+  color-scheme: light dark;
+}
+
+/* COMMON (MOST USED) ELEMENTS */
+
+body {
+  min-width: 320px;
+  /* max-width: 1480px; */
+  margin-inline: auto;
+
+  font-family: var(--ff-base);
+  font-weight: var(--fw-normal);
+
+  background-color: var(--clr-bottom-bg);
+  color: var(--clr-medium);
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: var(--clr-light);
+  font-weight: var(--fw-normal-plus);
+  text-decoration: inherit;
+}
+a:hover {
+  color: hsl(52, 100%, 51%);
+}
+
+button {
+  border-radius: 0.4em;
+  border: 1px solid var(--clr-panel-bg);
+  padding: 0.4em 1em;
+  font-weight: 500;
+  background-color: var(--clr-button-bg);
+  color: var(--clr-button-text);
+  cursor: pointer;
+}
+button:hover {
+  background-color: var(--clr-button-bg-h);
+  color: var(--clr-button-text-h);
+}
+button:focus,
+button:focus-visible {
+  outline: 0.2em auto -webkit-focus-ring-color;
+}
+
+/* CONVENTION UTILITY STYLES */
+
+.svg-icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  color: #ffffff;
+}
+
+.list {
+  list-style-type: none;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none;
+  position: "absolute";
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.blur {
+  filter: blur(0.1rem);
+}
+
+/* GENERAL TEXT ALIGNMENTS */
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right,
+.text-align-number {
+  text-align: right;
+}
+
+.text-align-justify {
+  text-align: justify;
+}
+
+/* ALERTS : VISUAL DECORATION OF TEXT */
+
+.info {
+  color: var(--clr-aux-info) !important;
+  text-shadow: 1px 1px var(--clr-black);
+}
+
+.warning {
+  color: var(--clr-aux-warning) !important;
+  text-shadow: 1px 1px var(--clr-black);
+}
+
+.problem {
+  color: var(--clr-aux-problem) !important;
+  text-shadow: var(--clr-light) 0 0 0.8em;
+}

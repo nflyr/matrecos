@@ -1,0 +1,32 @@
+h1 {
+  font-size: 14px;
+}
+
+.icon-board {
+  padding: 1em;
+}
+
+.icon-board > ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.icon-board > ul > li {
+  border-radius: 4px;
+  padding: 0.5rem;
+  background-color: rgb(100, 100, 100);
+  color: white;
+}
+
+.icon-board > ul > li > svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icon-board > ul > li > span {
+  display: inline-block;
+  width: 8em;
+}

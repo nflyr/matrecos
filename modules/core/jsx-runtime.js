@@ -45,7 +45,7 @@ export const vjsx = (tag, props, ...children) => {
         element[name] = !!value;
       } else {
         if (value && value != "") {
-          element.setAttribute(name, value);
+          element.setAttribute(name == "className" ? "class" : name, value); //handle className
         }
       }
     }

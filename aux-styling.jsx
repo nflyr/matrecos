@@ -87,4 +87,4 @@ function Styling() {
 
 // render into the DOM
 
-vjs.gebi("app").appendChild(Styling());
+vjs.gid("app").appendChild(Styling());

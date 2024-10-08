@@ -18,22 +18,6 @@ import vjs from "./modules/core/js-vanilla";
  */
 import Card from "./modules/template/Card";
 
-//
-// MONITOR: Document validation
-//
-import { queueCDV } from "./modules/monitors/contracting/ContractingQueues-ui";
-function initDocValidation(host) {
-  const card = new queueCDV(host, { loop: 10 }); //loop for 10 seconds
-}
-
-//
-// MONITOR: Mail Manager analytics
-//
-import { mailManager } from "./modules/monitors/mailmanager/MailManager-ui";
-function initMailManager(host) {
-  const card = new mailManager(host, { loop: 10 }); //loop for 60 seconds
-}
-
 /**
  * FORM DEMO
  */
@@ -51,7 +35,7 @@ function initDemo(host) {
 //   const card = Card({ title: sample.title });
 //   const cardBody = Table(sample);
 //   host.appendChild(card);
-//   vjs.gebi(card.getAttribute("id") + "_body").appendChild(cardBody);
+//   vjs.gid(card.getAttribute("id") + "_body").appendChild(cardBody);
 // }
 
 /**
@@ -60,10 +44,6 @@ function initDemo(host) {
  * @returns
  */
 export function activateMonitors(host) {
-  //initSampleCard(host);
-  initDocValidation(host);
-  initMailManager(host);
-  //initDocValidation(host); // To check for MultiThread on Specific card, IT WORKS!
   initDemo(host);
 }
 

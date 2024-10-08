@@ -22,7 +22,7 @@ function onLoad(fn) {
  * @param {*} id The id to search for
  * @returns The found element or null
  */
-function gebi(id) {
+function gid(id) {
   return (id !== undefined && document.getElementById(id)) || null;
 }
 
@@ -33,8 +33,8 @@ function gebi(id) {
  * @returns The first element found or null
  */
 function qry(selector, element) {
-  const mo = element?.querySelector ?? document;
-  return mo.querySelector(selector ?? "*");
+  const e = isNode(element) ? element : document;
+  return e.querySelector(selector ?? "*");
 }
 
 /**
@@ -49,13 +49,22 @@ function qryAll(selector, element) {
 }
 
 /**
+ * Best attempt to check if an object is a DOM Node.
+ * @param {*} obj
+ * @returns True if the object has nodeName and nodeType attribues
+ */
+function isNode(obj) {
+  return typeof obj === "object" && typeof obj.nodeName === "string" && typeof obj.nodeType === "number";
+}
+
+/**
  * Add a class name to the class list property of a element.
  * @param {*} elem The element to change, or it's ID
  * @param {*} clazz The class name to add
  * @returns undefined
  */
 function addClass(elem, clazz) {
-  const el = (elem?.classList && elem) || gebi(elem);
+  const el = (elem?.classList && elem) || gid(elem);
   if (el?.classList && clazz) el.classList.add(clazz);
 }
 
@@ -66,7 +75,7 @@ function addClass(elem, clazz) {
  * @returns undefined
  */
 function removeClass(elem, clazz) {
-  const el = (elem?.classList && elem) || gebi(elem);
+  const el = (elem?.classList && elem) || gid(elem);
   if (el?.classList && clazz) el.classList.remove(clazz);
 }
 
@@ -76,10 +85,10 @@ function removeClass(elem, clazz) {
  * @returns undefined
  */
 function show(elem) {
-  const el = (elem?.style && elem) || gebi(elem);
+  const el = (elem?.style && elem) || gid(elem);
   if (el?.style) {
     el.style.display = "";
-    removeClass(el, "hidden"); //just in case
+    removeClass(el, "ocrid-hidden"); //just in case
   }
 }
 
@@ -89,10 +98,10 @@ function show(elem) {
  * @returns undefined
  */
 function hide(elem) {
-  const el = (elem?.style && elem) || gebi(elem);
+  const el = (elem?.style && elem) || gid(elem);
   if (el?.style) {
     el.style.display = "none";
-    addClass(el, "hidden"); //just in case
+    addClass(el, "ocrid-hidden"); //just in case
   }
 }
 
@@ -108,6 +117,22 @@ function empty(elem) {
 }
 
 /**
+ * Insert children into a new field.
+ * @param {*} elem The element to change
+ * @param {*} data The new data to insert into the element
+ * @returns undefined
+ */
+function append(elem, data) {
+  if (Array.isArray(data)) {
+    data.forEach((d) => append(elem, d));
+  } else if (isNode(data)) {
+    elem.appendChild(data);
+  } else {
+    elem.appendChild(document.createTextNode(typeof data === "object" ? JSON.stringify(data) : data));
+  }
+}
+
+/**
  * Remove all children from a given DOM element and add new.
  * @param {*} elem The element to change
  * @param {*} data The new data to insert into the element
@@ -115,11 +140,7 @@ function empty(elem) {
  */
 function replace(elem, data) {
   empty(elem);
-  if (Array.isArray(data)) {
-    data.forEach((d) => replace(d));
-  } else {
-    elem.appendChild(typeof data === "object" ? data : document.createTextNode(data));
-  }
+  append(elem, data);
 }
 
 /**
@@ -143,21 +164,46 @@ function formatDate(date, iso) {
 }
 
 /**
+ * Bing a specific event to a function for an element.
+ * @param {*} elem The target element
+ * @param {*} name Name of the event to bind
+ * @param {*} fn The function to execute
+ * @returns The event.
+ */
+function bind(elem, name, fn) {
+  if (typeof fn !== "function") {
+    console.log("BIND " + name + " to " + JSON.stringify(elem) + " failed because fn [" + fn + "] is not a function");
+    return;
+  }
+  let cap = {
+    func: (e) => {
+      e.preventDefault();
+      fn.call();
+      return false;
+    },
+  };
+  elem.addEventListener(name, cap.func.bind(cap), false);
+}
+
+/**
  * The exported object
  */
 
 const vjs = {
   onLoad: onLoad,
-  gebi: gebi,
+  gid: gid,
   qry: qry,
+  isNode: isNode,
   addClass: addClass,
   removeClass: removeClass,
   show: show,
   hide: hide,
   empty: empty,
+  append: append,
   replace: replace,
   formatDateTime: formatDateTime,
   formatDate: formatDate,
+  bind: bind,
 };
 
 export default vjs;

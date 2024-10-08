@@ -14,7 +14,7 @@ import AppMain, { activateMonitors } from "./AppMain";
 loadSVG("/icon-sprite-001.svg", "hidden");
 
 //render application main screen
-appendChild(vjs.gebi("app"), App());
+appendChild(vjs.gid("app"), App());
 
 //activate/render real time monitors
 activateMonitors(vjs.qry("main"));
@@ -45,7 +45,7 @@ function EditorPanel({ title, logo, style }) {
   //close the panel
   const close = (e) => {
     e.preventDefault();
-    vjs.addClass(vjs.gebi("app-config"), "hidden");
+    vjs.addClass(vjs.gid("app-config"), "hidden");
     return false;
   };
 

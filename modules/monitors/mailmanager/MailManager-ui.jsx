@@ -95,11 +95,11 @@ export function mailManager(parentNode, props) {
       });
     }
     // update the header tiemstamp
-    const ch = vjs.gebi(c_CardId + "_header");
+    const ch = vjs.gid(c_CardId + "_header");
     const ct2 = ch.querySelector("h2");
     vjs.replace(ct2, "Updated: " + vjs.formatDateTime(new Date()));
     // replace the old data with fresh data
-    const cardBody = vjs.gebi(c_CardId + "_body");
+    const cardBody = vjs.gid(c_CardId + "_body");
     vjs.replace(cardBody, table.body.length > 0 ? Table(table) : data);
     //handle loop (in seconds)
     if (typeof props?.loop === "number") {

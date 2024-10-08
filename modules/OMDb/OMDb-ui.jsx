@@ -155,13 +155,13 @@ var wwmo = new MutationObserver(function (e) {
   }
 });
 //colocar dentro da função OMDbForm.
-wwmo.observe(vjs.gebi(props.formId).parentElement, { childList: true });
+wwmo.observe(vjs.gid(props.formId).parentElement, { childList: true });
 
 */
 
    function search(e) {
       e.preventDefault();
-      const qForm = vjs.gebi(props.formId);
+      const qForm = vjs.gid(props.formId);
       const qText = vjs.qry("#" + props.formId + " input[name='title']").value;
       const qYear = vjs.qry("#" + props.formId + " input[name='year']").value;
       const qType = vjs.qry("#" + props.formId + " select[name='type']").value;

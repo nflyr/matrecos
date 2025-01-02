@@ -1,0 +1,126 @@
+<html><head>
+<script src="ferias.js"></SCRIPT>
+<script language="Javascript">
+
+	/*--------------------------------------------------------+
+	| MARCAR FÉRIAS : addPeriodo('uid','AAAA-MM-DD',duracao); |
+	+--------------------------------------------------------*/
+
+	
+	//
+	// 2023
+	//
+
+	//Release Outsystems
+	addPeriodo(2023,'R1','2023-01-10',1, "Release 1/2023");
+	addPeriodo(2023,'R1','2023-02-16',1, "Release 2/2023");
+	addPeriodo(2023,'R1','2023-03-16',1, "Release 3/2023");
+	addPeriodo(2023,'R1','2023-04-18',1, "Release 4/2023");
+	addPeriodo(2023,'R1','2023-05-16',1, "Release 5/2023");
+	addPeriodo(2023,'R1','2023-06-15',1, "Release 6/2023");
+	
+	
+	//Luis Ferreira
+	addPeriodo(2023,'LF','2023-01-02',3, "Exemplo Dummy");
+	
+
+	
+</script>
+<style TYPE="text/css">
+	html  { font-size:12px; }
+	.title{ margin-bottom:5px; border:2px solid black; padding:4px; font-size:2em; font-weight:bold; }
+	.box  { border:1px solid black; padding:2px; font-weight:bold; }
+	body  { margin:4px; background-color:#ffffff; font-family:sans-serif;  color:black; }
+	table { font-size:1.2em; }
+	th    { border:1px solid black; text-align:center; background-color:#d0d0d0; font-weight:bold; }
+	td    { border:1px solid dimgray; text-align:center;}
+	td.void    { border:0 !important }
+	div.goodol { display: none; }
+	div.troika { display: block; padding: 5px; color: red; font-weight: bold; }
+</style>
+<script type="text/Javascript" language="text/Javascript">
+	var currentCalendar=new Date().getFullYear();
+	
+	//caracteristicas de tipos de ausência (função override ao script)
+	function getPerTypeInfo(t,obs){
+		if(obs && obs!=='') return ['','black'];
+		if(t=='a') return ['Anos<','red'];
+		if(t=='u') return ['Univ.','blue'];
+		else return ['Férias','black'];
+	}
+	
+	function update() {
+	
+		//draw calendar
+		drawCal(currentCalendar);	
+	
+		//troyka gangsters warning
+		var gang = 'goodol';
+		if (currentCalendar == 2014 || currentCalendar == 2015 )  { gang = 'troika'; }
+ 		document.getElementById('version').className = gang;
+		
+	}
+	
+	function startProcess() {
+		escolhe.escolheUser.selectIndex=0;
+		for(var i=1;i<escolhe.escolheUser.options.length;i++)addUser(escolhe.escolheUser.options[i].value,escolhe.escolheUser.options[i].text);
+		update();
+	}
+	
+</script>
+</head>
+<body onLoad="startProcess();">
+<div class="title">Calendário com marcação de férias ISBAN SCF</div>
+<div class="box">
+<form name="escolhe">
+	
+	Indique o Ano que pretende:
+	<select name="escolheAnos" onChange="currentCalendar=this.value;update();">
+	<option value="2022">2022</option>
+	<option value="2023" selected >2023</option>
+	<option value="2024">2024</option>
+	<option value="2025">2025</option>
+	<option value="2016">2026</option>
+	</select>
+	
+	&nbsp;
+	
+	Fazer <i>highlight</i> de um elemento:
+	<select name="escolheUser" onChange="highLightUI=escolheUser.options[escolheUser.selectedIndex].value.split(',');highLightUI.push(this.value);">
+		<option value="-">-</option>
+		<option value="AC">Alfonso Calpena</option>
+		<option value="AM">Aline Mendonça</option>
+		<option value="CG">Carlos Gonçalves</option>
+		<option value="CM">Cláudio Moreira</option>
+		<option value="FA">Fernando Almeida</option>
+		<option value="HD">Hugo Dores</option>
+		<option value="JS">Jorge Silva</option>
+		<option value="LF">Luis Ferreira</option>
+		<option value="LL">Luis Lopes</option>
+		<option value="MA">Miguel Ângelo</option>
+		<option value="PF">Pedro Ferreira</option>
+		<option value="RP">Rita Paredes</option>
+		<option value="SG">Sónia Gonçalves</option>
+		<option value="R1">Release Outsystems</option>
+		<option value="R2">Release IBCC</option>
+		<option value="R3">Release Outros</option>
+
+	</select>
+	<input type="button" value="go" onClick="update();" />
+
+	&nbsp;
+	
+	Fazer <i>highlight</i> de um Grupo:
+	<select name="escolheRole" onChange="highLightUI=this.value.split(',');highLightUI.push(escolheUser.options[escolheUser.selectedIndex].value);">
+		<option value="-">-</option>
+		<option value="CG,FA,HD,JS,LL">App Managers</option>
+		<option value="SG">Certificação</option>
+		<option value="CG">Suporte</option>
+		<option value="AC,AM,CM,LF">Peace of Mind Fockers</option>
+	</select>
+	<input type="button" value="go" onClick="update();" />
+</form>
+</div>
+<!-- div id="version" class="goodol">*** ATENÇÃO - MAPA DE FERIADOS CALCULADO SEGUNDO REGRAS "WHITE COLLAR GANGSTER GROUP - TROIKA" ***</div -->
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--
+	1. chrome://quit
+	2. "C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-web-security --disable-gpu --disable-features=IsolateOrigins,site-per-process --user-data-dir="C://temp"
+	-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="IDP_DocUpload_POC.css" />
+    <title>IDP Broker - Document upload Facility</title>
+  </head>
+  <body>
+    <div class="flex">
+      <div class="panel">
+        <h2>Upload Document Interface</h2>
+        <form data-js-Hook="uploadForm" enctype="multipart/form-data">
+          <div class="flex vgap">
+            <label for="fileInput" class="horiz">File to upload:</label>
+            <input type="file" data-js-Hook="input:file" accept=".pdf,.png,.jpg,.jpeg" required />
+          </div>
+          <div class="flex vgap">
+            <label for="docList" class="horiz">Documents:</label>
+            <ul>
+              <li><input data-js-Hook="input:docItem" type="checkbox" value="doc1" />Document type 1</li>
+              <li><input data-js-Hook="input:docItem" type="checkbox" value="doc2" />Document type 2</li>
+              <li><input data-js-Hook="input:docItem" type="checkbox" value="doc3" />Document type 3</li>
+            </ul>
+          </div>
+          <div class="flex vgap">
+            <label for="action" class="horiz">Send doc:</label>
+            <button data-js-Hook="uploadButton" name="action" type="submit">Upload</button>
+          </div>
+        </form>
+        <div>
+          <h3>Results ---</h3>
+          <div id="results">?</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Process Execution</h2>
+        <div id="console">?</div>
+      </div>
+    </div>
+    <script src="IDP_DocUpload_POC.js"></script>
+  </body>
+</html>

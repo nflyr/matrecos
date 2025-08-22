@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="ft-template.css" />
+  </head>
+  <body>
+    <div class="x-wrapper">
+      <h1>Form template WITH fieldSets</h1>
+      <form action="" class="x-form">
+        <!-- Form sections may me organized in fieldset -->
+        <fieldset>
+          <legend>Personal data</legend>
+          <!-- fields should be organized in form.groups-->
+          <div class="x-form-group">
+            <label for="id1">Full name</label>
+            <input type="text" id="id1" required />
+          </div>
+          <div class="x-form-group">
+            <label for="id2">Birth date</label>
+            <input type="date" id="id2" required />
+          </div>
+          <div class="x-form-group">
+            <label for="id2">Birth date</label>
+            <input type="date" id="id2" required />
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Preferences</legend>
+          <div class="x-form-group">
+            <label for="id5">Music genres</label>
+            <input type="text" id="id5" />
+          </div>
+          <div class="x-form-group">
+            <label for="id6">Movies</label>
+            <input type="text" id="id6" />
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Consents</legend>
+          <div class="x-form-group">
+            <input type="checkbox" id="privacy" />
+            <label for="privacy" class="x-spanner x-fine-print"
+              >I agree that my personal data will be processed in accordance with the <a href="#">Privacy Policy</a></label
+            >
+          </div>
+        </fieldset>
+        <div class="x-button-span"><button>Cancel</button><button class="x-primary">Send Information</button></div>
+      </form>
+
+      <h1>Form template WITHOUT fieldSets</h1>
+      <form action="" class="x-no-fieldset">
+        <!-- fields should be organized in form.groups-->
+        <div class="x-form-group">
+          <label for="id21">Full name</label>
+          <input type="text" id="id21" required />
+        </div>
+        <div class="x-form-group">
+          <label for="id22">Birth date</label>
+          <input type="date" id="id22" required />
+        </div>
+        <div class="x-form-group">
+          <label for="id22">Birth date</label>
+          <input type="date" id="id22" required />
+        </div>
+        <div class="x-form-group">
+          <label for="id25">Music genres</label>
+          <input type="text" id="id25" />
+        </div>
+        <div class="x-form-group">
+          <label for="id26">Movies</label>
+          <input type="text" id="id26" />
+        </div>
+        <div class="x-form-group">
+          <input type="checkbox" id="privacy2" />
+          <label for="privacy2" class="x-spanner x-fine-print"
+            >I agree that my personal data will be processed in accordance with the <a href="#">Privacy Policy</a></label
+          >
+        </div>
+        <div class="x-button-span"><button>Cancel</button><button class="x-primary">Send Information</button></div>
+      </form>
+    </div>
+  </body>
+</html>

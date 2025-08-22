@@ -1,0 +1,142 @@
+/* add-reset */
+
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}
+/* theme */
+
+:root {
+  --dim-panel-gap: 1rem;
+  --dim-inline-gap: 0.5rem;
+  --dim-max-panel-width: 800px;
+
+  --clr-surface: hsl(180, 35%, 16%);
+  --clr-surface-1: hsl(158, 13%, 29%);
+  --clr-surface-2: hsl(from var(--clr-surface-1) h s calc(l + 5));
+  --clr-border-1: hsl(from var(--clr-surface-2) h s calc(l + 10));
+  --clr-neutral-1: hsl(36, 43%, 72%);
+  --clr-neutral-2: hsl(128, 10%, 45%);
+  --clr-accent-1: hsl(0, 0%, 100%);
+  --clr-accent-2: hsl(0, 0%, 90%);
+  --clr-link: hsl(44, 88%, 41%);
+  --clr-link-hover: hsl(from var(--clr-link) h 100% 50%);
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  background-color: var(--clr-surface);
+  color: var(--clr-neutral-1);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+a {
+  color: var(--clr-link);
+}
+
+a:hover {
+  color: var(--clr-link-hover);
+}
+
+button {
+  padding: var(--dim-inline-gap);
+  border: 0;
+  border-radius: var(--dim-inline-gap);
+  background-color: var(--clr-neutral-2);
+  color: var(--clr-accent-2);
+}
+
+button.x-primary {
+  background-color: var(--clr-link);
+  color: var(--clr-accent-1);
+}
+
+button:hover,
+button.x-primary:hover {
+  background-color: var(--clr-link-hover);
+  color: var(--clr-surface);
+}
+
+.x-wrapper {
+  border: 1px solid red;
+  display: grid;
+  gap: var(--dim-panel-gap);
+  padding: var(--dim-panel-gap);
+  background-color: var(--clr-surface-1);
+}
+
+/* form components */
+
+form {
+  /* border: 1px solid greenyellow; */
+  display: grid;
+  gap: var(--dim-panel-gap);
+  max-width: var(--dim-max-panel-width);
+}
+
+@media screen and (width > 767px) {
+  form.x-no-fieldset {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+fieldset {
+  border-width: 1px 0 0 0;
+  border-color: var(--clr-link);
+  color: var(--clr-neutral-2);
+  display: grid;
+  gap: var(--dim-inline-gap);
+  padding: var(--dim-inline-gap);
+
+  @media screen and (width > 767px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+fieldset > legend {
+  margin-left: var(--dim-inline-gap);
+  padding-inline: var(--dim-inline-gap);
+}
+
+.x-form-group {
+  /* border: 1px solid peachpuff; */
+  display: grid;
+}
+
+.x-button-span,
+.x-form-group:has(.x-spanner) {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: var(--dim-inline-gap);
+  /* background: yellow; */
+}
+
+.x-button-span {
+  padding-top: var(--dim-panel-gap);
+}
+
+label {
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: var(--clr-neutral-1);
+}
+
+.x-fine-print {
+  text-transform: revert;
+  line-height: 1.4;
+}
+
+input {
+  background: var(--clr-surface-2);
+  color: var(--clr-accent-1);
+  border: 1px solid var(--clr-border-1);
+  border-radius: var(--dim-inline-gap);
+  padding: 0.8ex 1ex;
+  accent-color: var(--clr-neutral-2);
+}

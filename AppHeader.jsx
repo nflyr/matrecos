@@ -67,9 +67,14 @@ executando o script "monitor.cmd" da pasta "C:\\iapps\\monserver".`;
           <use href="#icon-Trend-up" />
         </svg>
       </a>
-      <a href="/mocks/fontvar/mock1.html" alt="Variable font Noto" target="_blank">
+      <a href="/mocks/fontvar/mockup.html" alt="Variable Font demo" target="_blank">
         <svg role="img" class="logo-32">
           <use href="#icon-At" />
+        </svg>
+      </a>
+      <a href="/mocks/form-template/ft-template.html" alt="Form template" target="_blank">
+        <svg role="img" class="logo-32">
+          <use href="#icon-Edit" />
         </svg>
       </a>
       <a id="vite-about" href="https://vitejs.dev" target="_blank">

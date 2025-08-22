@@ -11,14 +11,13 @@ import vjs from "./modules/core/js-vanilla";
  * Versions :
  *    2023.07.05 (v1) - Initial version
  *    aaaa.mm.dd (v?) - Description...
- *     
+ *
  * Implements:
  *   The global header of this application.
  *   The current template pesents credits icons and a "spread menu"
  */
 
 export function AppHeader({ panel }) {
-  
   const openConfig = (e) => {
     e.preventDefault();
     vjs.show(panel);
@@ -66,6 +65,11 @@ executando o script "monitor.cmd" da pasta "C:\\iapps\\monserver".`;
       <a href="/aux-styling.html" alt="Esquema de estilos" target="_blank">
         <svg role="img" class="logo-32">
           <use href="#icon-Trend-up" />
+        </svg>
+      </a>
+      <a href="/mocks/fontvar/mock1.html" alt="Variable font Noto" target="_blank">
+        <svg role="img" class="logo-32">
+          <use href="#icon-At" />
         </svg>
       </a>
       <a id="vite-about" href="https://vitejs.dev" target="_blank">

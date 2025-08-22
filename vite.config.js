@@ -8,6 +8,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         auxIconSprite: resolve(__dirname, "aux-icon-sprite.html"),
         auxStyling: resolve(__dirname, "aux-styling.html"),
+        mockFontVar: resolve(__dirname, "mocks/fontvar/mock1.html"),
       },
     },
   },

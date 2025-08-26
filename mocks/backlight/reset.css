@@ -1,0 +1,42 @@
+/*! RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+ul:not([class]),
+ol:not([class]) {
+  list-style-type: none;
+}
+
+a:not([class]) {
+  text-decoration: none;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}

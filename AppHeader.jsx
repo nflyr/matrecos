@@ -77,6 +77,12 @@ executando o script "monitor.cmd" da pasta "C:\\iapps\\monserver".`;
           <use href="#icon-Edit" />
         </svg>
       </a>
+      <a href="/mocks/backlight/backlight.html" alt="Backlight" target="_blank">
+        <svg role="img" class="logo-32">
+          <use href="#icon-Clock" />
+        </svg>
+      </a>
+
       <a id="vite-about" href="https://vitejs.dev" target="_blank">
         <img src="/icon-vite.svg" class="logo-24 vite" alt="Vite logo" />
       </a>

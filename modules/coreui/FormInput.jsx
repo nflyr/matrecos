@@ -5,7 +5,7 @@ import { vjsx } from "../core/jsx-runtime";
 Component: coreui / Form Input (see available types bellow)
 File     : FormInput.jsx
 Author   : nflyr (luisf.aff@gmail.com)
-Licence  : IDGAF
+Licence  : EUPL
 Versions :
  - 2024.02.19 (v1) - Initial version
  - aaaa.mm.dd (v?) - Description...

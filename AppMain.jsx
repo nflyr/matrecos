@@ -6,7 +6,7 @@ import vjs from "./modules/core/js-vanilla";
 /**
  * File     : index-Main.jsx
  *  Author  : nflyr (luisf.aff@gmail.com)
- * Licence  : IDGAF
+ * Licence  : EUPL
  * Versions :
  *    2023.07.05 (v1) - Initial version
  *    aaaa.mm.dd (v?) - Description...
@@ -23,7 +23,7 @@ import Card from "./modules/template/Card";
  */
 import Demo from "./modules/coreui/Demo";
 function initDemo(host) {
-    const c = new Demo(host);
+  const c = new Demo(host);
 }
 
 //
@@ -44,14 +44,14 @@ function initDemo(host) {
  * @returns
  */
 export function activateMonitors(host) {
-    initDemo(host);
+  initDemo(host);
 }
 
 /**
  * Draw Main container (dashboard)
  */
 export function AppMain() {
-    return <main id="app-main"></main>;
+  return <main id="app-main"></main>;
 }
 
 export default AppMain;

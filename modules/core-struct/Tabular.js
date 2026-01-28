@@ -2,7 +2,7 @@
 Component: core-struct / Tabular Data
 File     : Tabular.js
 Author   : nflyr (luisf.aff@gmail.com)
-Licence  : IDGAF
+Licence  : EUPL
 Versions :
  - 2024.10.23 (v1) - Initial version
  - aaaa.mm.dd (v?) - Description...

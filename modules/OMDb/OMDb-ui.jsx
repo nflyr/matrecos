@@ -5,7 +5,7 @@ import { vjsx } from "../core/jsx-runtime";
 Component: OMDb
 File     : OMDb-ui.jsx
  Author  : nflyr (luisf.aff@gmail.com) 
-Licence  : IDGAF
+Licence  : EUPL
 Versions : 
    2023.05.05 (v1) - Initial version
    aaaa.mm.dd (v?) - Description...
@@ -41,27 +41,22 @@ const IMBD_URL = "https://www.imdb.com/title/";
  * @returns A JSX object
  */
 function FilmRow(props) {
-   const film = (props && typeof props.film === 'object' && props.film) || {};
-   const url = IMBD_URL + film.imdbID;
-   const key = (typeof props.key === 'string' && props.key) || film.imdbID;
-   return (
-      <tr data-key={key}>
-         <td>
-            <a target="_blank" href={url}>
-               <img
-                  src={film.Poster}
-                  width="100"
-                  loading="lazy"
-                  alt="Movie poster"
-               />
-            </a>
-         </td>
-         <td>{film.Title}</td>
-         <td>{film.Year}</td>
-         <td>{film.imdbID}</td>
-         <td>{film.Type}</td>
-      </tr>
-   );
+  const film = (props && typeof props.film === "object" && props.film) || {};
+  const url = IMBD_URL + film.imdbID;
+  const key = (typeof props.key === "string" && props.key) || film.imdbID;
+  return (
+    <tr data-key={key}>
+      <td>
+        <a target="_blank" href={url}>
+          <img src={film.Poster} width="100" loading="lazy" alt="Movie poster" />
+        </a>
+      </td>
+      <td>{film.Title}</td>
+      <td>{film.Year}</td>
+      <td>{film.imdbID}</td>
+      <td>{film.Type}</td>
+    </tr>
+  );
 }
 
 /**
@@ -71,38 +66,37 @@ function FilmRow(props) {
  * @returns A JSX object
  */
 export function OMDbList(props) {
-   const films = (props && Array.isArray(props.films)) || [];
-   return (
-      <table data-module-id="OMDb-List" className="OMDb-List">
-         <thead>
-            <tr>
-               <th>Poster</th>
-               <th>Title</th>
-               <th>Year</th>
-               <th>imdbID</th>
-               <th>Type</th>
-            </tr>
-         </thead>
-         <tbody>
-            {films.length == 0 && (
-               <tr>
-                  <td colspan="5">(no items)</td>
-               </tr>
-            )}
-            {films.forEach((film) => (
-               <FilmRow film={film} />
-            ))}
-         </tbody>
-      </table>
-   );
+  const films = (props && Array.isArray(props.films)) || [];
+  return (
+    <table data-module-id="OMDb-List" className="OMDb-List">
+      <thead>
+        <tr>
+          <th>Poster</th>
+          <th>Title</th>
+          <th>Year</th>
+          <th>imdbID</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        {films.length == 0 && (
+          <tr>
+            <td colspan="5">(no items)</td>
+          </tr>
+        )}
+        {films.forEach((film) => (
+          <FilmRow film={film} />
+        ))}
+      </tbody>
+    </table>
+  );
 }
 
 //
 //Construct WEB WORKER under the module context.
 //
 
-const worker =
-   !!window.Worker && new Worker(new URL("OMDb-worker.js", import.meta.url), { type: "module" });
+const worker = !!window.Worker && new Worker(new URL("OMDb-worker.js", import.meta.url), { type: "module" });
 if (worker == false) console.log("Module.OMDb: Your browser does not support Workers");
 
 //
@@ -110,30 +104,30 @@ if (worker == false) console.log("Module.OMDb: Your browser does not support Wor
 //
 
 worker.onmessage = function (e) {
-   console.log("Module.OMDb: Message received from worker");
+  console.log("Module.OMDb: Message received from worker");
 
-   //
-   // find and empty the element to update
-   //
+  //
+  // find and empty the element to update
+  //
 
-   const filmList = vjs.qry("table[data-module-id='OMDb-List'] tbody");
-   while (filmList.firstChild) {
-      filmList.removeChild(filmList.lastChild);
-   }
+  const filmList = vjs.qry("table[data-module-id='OMDb-List'] tbody");
+  while (filmList.firstChild) {
+    filmList.removeChild(filmList.lastChild);
+  }
 
-   //
-   // Prepare film list and render
-   //
+  //
+  // Prepare film list and render
+  //
 
-   const data = e.data;
+  const data = e.data;
 
-   if (data.Search[1]) {
-      data.Search.sort((a, b) => a.Year - b.Year);
-   }
+  if (data.Search[1]) {
+    data.Search.sort((a, b) => a.Year - b.Year);
+  }
 
-   data.Search.forEach((film) => {
-      filmList.appendChild(<FilmRow film={film} />);
-   });
+  data.Search.forEach((film) => {
+    filmList.appendChild(<FilmRow film={film} />);
+  });
 };
 
 /**
@@ -144,7 +138,7 @@ worker.onmessage = function (e) {
  * @returns A JSX object
  */
 export function OMDbForm(props) {
-   /*
+  /*
 FOR LATTER - MAYBE NEDED TO REMOVE THE WORKER ABOVE
 
 //colocar fora da função.
@@ -159,48 +153,41 @@ wwmo.observe(vjs.gid(props.formId).parentElement, { childList: true });
 
 */
 
-   function search(e) {
-      e.preventDefault();
-      const qForm = vjs.gid(props.formId);
-      const qText = vjs.qry("#" + props.formId + " input[name='title']").value;
-      const qYear = vjs.qry("#" + props.formId + " input[name='year']").value;
-      const qType = vjs.qry("#" + props.formId + " select[name='type']").value;
-      console.log(
-         "Module.OMDb.Form: Searching for: " +
-         qText +
-         ", " +
-         qType +
-         ", " +
-         qYear
-      );
-      worker.postMessage(["search", qText, qType, qYear]);
-      return false;
-   }
+  function search(e) {
+    e.preventDefault();
+    const qForm = vjs.gid(props.formId);
+    const qText = vjs.qry("#" + props.formId + " input[name='title']").value;
+    const qYear = vjs.qry("#" + props.formId + " input[name='year']").value;
+    const qType = vjs.qry("#" + props.formId + " select[name='type']").value;
+    console.log("Module.OMDb.Form: Searching for: " + qText + ", " + qType + ", " + qYear);
+    worker.postMessage(["search", qText, qType, qYear]);
+    return false;
+  }
 
-   return (
-      <form data-module-id="OMDb-Form" id={props.formId} className={props.formClass}>
-         <div class="search">
-            <label for="type">Type</label>
-            <select id="type" name="type">
-               <option selected value="">
-                  Any
-               </option>
-               <option value="movie">Movie</option>
-               <option value="series">Series</option>
-               <option value="episode">Episode</option>
-            </select>
-         </div>
-         <div class="search">
-            <label for="year">Year</label>
-            <input id="year" name="year" type="text"></input>
-         </div>
-         <div class="search">
-            <label for="title">Title</label>
-            <input id="title" name="title" type="text"></input>
-         </div>
-         <button type="button" onClick={search}>
-            Search
-         </button>
-      </form>
-   );
+  return (
+    <form data-module-id="OMDb-Form" id={props.formId} className={props.formClass}>
+      <div class="search">
+        <label for="type">Type</label>
+        <select id="type" name="type">
+          <option selected value="">
+            Any
+          </option>
+          <option value="movie">Movie</option>
+          <option value="series">Series</option>
+          <option value="episode">Episode</option>
+        </select>
+      </div>
+      <div class="search">
+        <label for="year">Year</label>
+        <input id="year" name="year" type="text"></input>
+      </div>
+      <div class="search">
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text"></input>
+      </div>
+      <button type="button" onClick={search}>
+        Search
+      </button>
+    </form>
+  );
 }

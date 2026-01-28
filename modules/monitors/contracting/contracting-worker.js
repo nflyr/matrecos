@@ -2,7 +2,7 @@
 Component: monitor/contracting
 File     : contracting-worker.js
 Author   : nflyr (luisf.aff@gmail.com)
-Licence  : IDGAF
+Licence  : EUPL
 Versions :
  - 2023.11.05 (v1) - Initial version
  - aaaa.mm.dd (v?) - Description...

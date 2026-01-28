@@ -7,7 +7,7 @@ import vjs from "./modules/core/js-vanilla";
  * Component: Application
  * File     : AppHeader.jsx
  *  Author  : nflyr (luisf.aff@gmail.com)
- * Licence  : IDGAF
+ * Licence  : EUPL
  * Versions :
  *    2023.07.05 (v1) - Initial version
  *    aaaa.mm.dd (v?) - Description...

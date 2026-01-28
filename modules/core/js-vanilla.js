@@ -94,10 +94,11 @@ function show(elem) {
 
 /**
  * Hide an element by setting the display style to 'none'.
- * @param {*} elem The element to change
+ * @param {node}   elem The element to change
+ * @param {boolean}
  * @returns undefined
  */
-function hide(elem) {
+function hide(elem, force) {
   const el = (elem?.style && elem) || gid(elem);
   if (el?.style) {
     el.style.display = "none";

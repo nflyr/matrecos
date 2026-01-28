@@ -2,7 +2,7 @@
 Component: monitor/mailmanager
 File     : mailmanager-worker.js
 Author   : nflyr (luisf.aff@gmail.com)
-Licence  : IDGAF
+Licence  : EUPL
 Versions :
  - 2023.07.05 (v1) - Initial version
  - aaaa.mm.dd (v?) - Description...
